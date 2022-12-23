@@ -16,23 +16,19 @@ goal_1 = 54
 scorers = player_goal_0 +  " "  + str(goal_0) + ", " + player_goal_1 +  " " + str(goal_1)
 
 #creating a longer string with the above variables, using 'f strings
-#report = f'{player_goal_0} scored in the {goal_0}nd minute \n{player_goal_1} scored in the {goal_1}th minute'
-# and also by using the +-operator
-report = player_goal_0 + ' scored in the ' + str(goal_0) + 'nd minute \n' + player_goal_1 + ' scored in the ' + str(goal_1) + 'th minute'
-print(report)
+report = f'{player_goal_0} scored in the {goal_0}nd minute\n{player_goal_1} scored in the {goal_1}th minute'
 
 # part 2 - declaring a new player name and performing some slicing on it (& finding)
 player = 'Erwin Koeman'
-first_name_index = player.find(' ')
-first_name = player[:first_name_index]
+find_space = player.find(' ')
+first_name = player[:find_space]
 
-last_name_index = player.find('K')
-last_name = player[last_name_index:]
+last_name = player[find_space+1:]
 last_name_len = len(last_name)
 
-name_short = player[:1] + ". " + last_name
+name_short = player[0] + ". " + last_name
 
-chant =  (first_name + "! ") * 3
-chant = chant[:len(chant)-1]
+chant =  (first_name + "! ") * len(first_name)
+chant = chant[:-1]
 
 good_chant = chant[-1] != " "
